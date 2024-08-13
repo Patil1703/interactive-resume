@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>John Doe</h1>
+            <p>Web Developer | Designer</p>
+            <p>Contact: john.doe@example.com | (123) 456-7890</p>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="item" data-tooltip="This is where I studied Computer Science.">
+                    <h3>University of Example</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p>Graduated: May 2020</p>
+                </div>
+            </div>
+        </section>
+        <section id="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="item" data-tooltip="Developed user interfaces and enhanced user experience.">
+                    <h3>Front-End Developer at Example Co.</h3>
+                    <p>June 2021 - Present</p>
+                    <p>Worked on developing user interfaces and enhancing user experience.</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <ul>
+                    <li data-tooltip="Hypertext Markup Language">HTML & CSS</li>
+                    <li data-tooltip="Programming language of the web">JavaScript</li>
+                    <li data-tooltip="A JavaScript library for building user interfaces">React</li>
+                    <li data-tooltip="Designing user-friendly and intuitive interfaces">UX/UI Design</li>
+                </ul>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="item" data-tooltip="My personal portfolio showcasing various projects.">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal website to showcase my projects and skills.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 John Doe. All rights reserved.</p>
+        </div>
+    </footer>
+    <div id="tooltip"></div>
+    <script src="script.js"></script>
+</body>
+</html>
