@@ -47,13 +47,19 @@ A modern, fully responsive personal portfolio website built with pure HTML5, CSS
 
 ```
 portfolio/
-├── index.html                    # Main HTML — all sections
+├── index.html                          # Main HTML — all sections
 ├── css/
-│   └── styles.css                # Design tokens, components, responsive styles
+│   └── styles.css                      # Design tokens, components, responsive styles
 ├── js/
-│   └── script.js                 # All interactivity — loader, theme, typing, forms
+│   └── script.js                       # All interactivity — loader, theme, typing, forms, cert tilt
 ├── assets/
-│   └── sai_keerthana_resume.pdf  # Downloadable resume
+│   ├── sai_keerthana_resume.pdf        # Downloadable resume
+│   └── certificates/
+│       ├── microsoft-ai900.svg         # Replace with your real cert (PDF/PNG/SVG)
+│       ├── cybersecurity-privacy.svg
+│       ├── practical-cybersecurity.svg
+│       ├── social-media-security.svg
+│       └── ethical-hacking.svg
 └── README.md
 ```
 
@@ -66,7 +72,8 @@ portfolio/
 | **Hero** | Name, animated title, description, CTA buttons, social links, terminal widget |
 | **About** | Bio, stats (3 internships, 5K readers, 92% ML accuracy), badges, avatar |
 | **Certifications** | Auto-scrolling ticker — Microsoft AI-900, Razz Security, and more |
-| **Skills** | Cybersecurity (OWASP, MITRE ATT&CK, Nmap), Development (Python, Flask), Tools |
+| **Skills** | Cybersecurity (OWASP, MITRE ATT\&CK, Nmap), Development (Python, Flask), Tools |
+| **Certifications** | 5 interactive cards — Microsoft AI-900, Razz Security, and more; click to open full cert |
 | **Experience** | Timeline — Appfend, Eficens Systems, Unified Mentor, TheCyberDelta, ICFAI |
 | **Projects** | PhishMap, URL Shortener, Linux Security Auditing |
 | **Contact** | Email, phone, location, LinkedIn + validated contact form |
@@ -150,6 +157,10 @@ feat: reading progress bar and 3D card tilt effect
 a11y: add ARIA labels, skip link, keyboard navigation
 seo: add OpenGraph and Twitter Card meta tags
 docs: add README with deployment guide
+feat: add certifications section with interactive hover cards
+feat: cert cards — glow border, overlay, mouse-tracking tilt
+feat: cert cards — keyboard navigation and reduced-motion support
+chore: add certificate thumbnails to assets/certificates/
 ```
 
 ---
