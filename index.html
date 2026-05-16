@@ -466,22 +466,30 @@
       <div class="container">
         <div class="section-label reveal-up">Verified Credentials</div>
         <h2 id="certifications-heading" class="section-title reveal-up">Certifications</h2>
-        <p class="certs-intro reveal-up">Click any certificate to view the full credential in a new tab.</p>
+        <p class="certs-intro reveal-up">Click any card to open the full certificate in a new tab.</p>
 
-        <div class="certs-grid" role="list">
+        <!-- Filter tabs -->
+        <div class="cert-filters reveal-up" role="tablist" aria-label="Filter certificates by category">
+          <button class="cert-filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="filter-count">13</span></button>
+          <button class="cert-filter-btn" data-filter="cybersecurity" role="tab" aria-selected="false">Cybersecurity</button>
+          <button class="cert-filter-btn" data-filter="nptel" role="tab" aria-selected="false">NPTEL</button>
+          <button class="cert-filter-btn" data-filter="nasscom" role="tab" aria-selected="false">NASSCOM</button>
+          <button class="cert-filter-btn" data-filter="competition" role="tab" aria-selected="false">Competitions</button>
+        </div>
 
-          <!-- Microsoft AI-900 -->
-          <article class="cert-card reveal-up" role="listitem" style="--delay:0s; --cert-hue: #4a90d9;">
-            <a href="assets/certificates/microsoft-ai900.svg"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="View Microsoft Azure AI Fundamentals AI-900 certificate in new tab"
-               class="cert-card-link">
+        <div class="certs-grid" id="certs-grid" role="list">
+
+          <!-- 1. Cisco Endpoint Security -->
+          <article class="cert-card reveal-up" role="listitem" data-category="cybersecurity" style="--delay:0s; --cert-hue:#00bceb;">
+            <a href="assets/certificates/cisco-endpoint-security.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View Cisco Endpoint Security certificate — Cisco Networking Academy, Oct 2025" class="cert-card-link">
               <div class="cert-thumbnail" aria-hidden="true">
-                <img src="assets/certificates/microsoft-ai900.svg"
-                     alt="Microsoft AI-900 certificate preview"
-                     loading="lazy"
-                     width="400" height="280" />
+                <div class="cert-thumb-designed cert-thumb-cisco">
+                  <div class="ctd-logo">CISCO</div>
+                  <div class="ctd-sub">Networking Academy</div>
+                  <div class="ctd-title">Endpoint Security</div>
+                  <div class="ctd-seal">&#10003;</div>
+                </div>
                 <div class="cert-overlay">
                   <div class="cert-overlay-inner">
                     <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
@@ -491,30 +499,28 @@
               </div>
               <div class="cert-info">
                 <div class="cert-org-row">
-                  <span class="cert-org-badge cert-badge-microsoft">Microsoft</span>
-                  <span class="cert-verified" aria-label="Verified credential" title="Verified">&#10003;</span>
+                  <span class="cert-org-badge" style="background:#00bceb18;color:#00bceb;border-color:#00bceb30;">Cisco</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
                 </div>
-                <h3 class="cert-title">Azure AI Fundamentals</h3>
-                <p class="cert-subtitle">AI-900 Certification</p>
-                <p class="cert-date">
-                  <span class="cert-date-icon" aria-hidden="true">&#128197;</span> 2023
-                </p>
+                <h3 class="cert-title">Endpoint Security</h3>
+                <p class="cert-subtitle">Cisco Networking Academy</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Oct 2025</p>
               </div>
             </a>
           </article>
 
-          <!-- Cybersecurity & Privacy -->
-          <article class="cert-card reveal-up" role="listitem" style="--delay:0.08s; --cert-hue: #38c9a8;">
-            <a href="assets/certificates/cybersecurity-privacy.svg"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="View Cybersecurity and Privacy certificate in new tab"
-               class="cert-card-link">
+          <!-- 2. NPTEL Practical Cybersecurity — Elite -->
+          <article class="cert-card reveal-up" role="listitem" data-category="cybersecurity nptel" style="--delay:0.05s; --cert-hue:#e74c3c;">
+            <a href="assets/certificates/nptel-practical-cybersecurity.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NPTEL Elite certificate — Practical Cyber Security for Practitioners, IIT Kanpur, Jul-Oct 2024" class="cert-card-link">
               <div class="cert-thumbnail" aria-hidden="true">
-                <img src="assets/certificates/cybersecurity-privacy.svg"
-                     alt="Cybersecurity and Privacy certificate preview"
-                     loading="lazy"
-                     width="400" height="280" />
+                <div class="cert-thumb-designed cert-thumb-nptel">
+                  <div class="ctd-badge-elite">Elite</div>
+                  <div class="ctd-logo">NPTEL</div>
+                  <div class="ctd-sub">IIT Kanpur &middot; SWAYAM</div>
+                  <div class="ctd-title">Practical Cyber Security</div>
+                  <div class="ctd-score">Score: 71%</div>
+                </div>
                 <div class="cert-overlay">
                   <div class="cert-overlay-inner">
                     <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
@@ -524,30 +530,28 @@
               </div>
               <div class="cert-info">
                 <div class="cert-org-row">
-                  <span class="cert-org-badge cert-badge-cyber">Security Institute</span>
-                  <span class="cert-verified" aria-label="Verified credential" title="Verified">&#10003;</span>
+                  <span class="cert-org-badge" style="background:#e74c3c18;color:#f07060;border-color:#e74c3c30;">NPTEL Elite</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
                 </div>
-                <h3 class="cert-title">Cybersecurity &amp; Privacy</h3>
-                <p class="cert-subtitle">Fundamentals Certification</p>
-                <p class="cert-date">
-                  <span class="cert-date-icon" aria-hidden="true">&#128197;</span> 2023
-                </p>
+                <h3 class="cert-title">Practical Cyber Security</h3>
+                <p class="cert-subtitle">IIT Kanpur &middot; Score: 71%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Jul&ndash;Oct 2024</p>
               </div>
             </a>
           </article>
 
-          <!-- Practical Cybersecurity -->
-          <article class="cert-card reveal-up" role="listitem" style="--delay:0.16s; --cert-hue: #9b59b6;">
-            <a href="assets/certificates/practical-cybersecurity.svg"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="View Practical Cybersecurity certificate in new tab"
-               class="cert-card-link">
+          <!-- 3. NPTEL Privacy & Security in Online Social Media — Elite -->
+          <article class="cert-card reveal-up" role="listitem" data-category="cybersecurity nptel" style="--delay:0.10s; --cert-hue:#9b59b6;">
+            <a href="assets/certificates/nptel-privacy-social-media.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NPTEL Elite certificate — Privacy and Security in Online Social Media, IIIT Hyderabad, Jan-Apr 2025" class="cert-card-link">
               <div class="cert-thumbnail" aria-hidden="true">
-                <img src="assets/certificates/practical-cybersecurity.svg"
-                     alt="Practical Cybersecurity certificate preview"
-                     loading="lazy"
-                     width="400" height="280" />
+                <div class="cert-thumb-designed cert-thumb-nptel cert-thumb-nptel-purple">
+                  <div class="ctd-badge-elite">Elite</div>
+                  <div class="ctd-logo">NPTEL</div>
+                  <div class="ctd-sub">IIIT Hyderabad &middot; SWAYAM</div>
+                  <div class="ctd-title">Privacy &amp; Security in Social Media</div>
+                  <div class="ctd-score">Score: 68%</div>
+                </div>
                 <div class="cert-overlay">
                   <div class="cert-overlay-inner">
                     <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
@@ -557,30 +561,27 @@
               </div>
               <div class="cert-info">
                 <div class="cert-org-row">
-                  <span class="cert-org-badge cert-badge-purple">Certification Authority</span>
-                  <span class="cert-verified" aria-label="Verified credential" title="Verified">&#10003;</span>
+                  <span class="cert-org-badge" style="background:#9b59b618;color:#c07ee0;border-color:#9b59b630;">NPTEL Elite</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
                 </div>
-                <h3 class="cert-title">Practical Cybersecurity</h3>
-                <p class="cert-subtitle">Hands-on Security Training</p>
-                <p class="cert-date">
-                  <span class="cert-date-icon" aria-hidden="true">&#128197;</span> 2023
-                </p>
+                <h3 class="cert-title">Privacy &amp; Security in Social Media</h3>
+                <p class="cert-subtitle">IIIT Hyderabad &middot; Score: 68%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Jan&ndash;Apr 2025</p>
               </div>
             </a>
           </article>
 
-          <!-- Privacy & Security in Social Media -->
-          <article class="cert-card reveal-up" role="listitem" style="--delay:0.24s; --cert-hue: #27ae60;">
-            <a href="assets/certificates/social-media-security.svg"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="View Privacy and Security in Social Media certificate in new tab"
-               class="cert-card-link">
+          <!-- 4. NPTEL Games and Information -->
+          <article class="cert-card reveal-up" role="listitem" data-category="nptel" style="--delay:0.15s; --cert-hue:#27ae60;">
+            <a href="assets/certificates/nptel-games-information.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NPTEL certificate — Games and Information, IIT Bombay, Jan-Apr 2025" class="cert-card-link">
               <div class="cert-thumbnail" aria-hidden="true">
-                <img src="assets/certificates/social-media-security.svg"
-                     alt="Privacy and Security in Social Media certificate preview"
-                     loading="lazy"
-                     width="400" height="280" />
+                <div class="cert-thumb-designed cert-thumb-nptel cert-thumb-nptel-green">
+                  <div class="ctd-logo">NPTEL</div>
+                  <div class="ctd-sub">IIT Bombay &middot; SWAYAM</div>
+                  <div class="ctd-title">Games and Information</div>
+                  <div class="ctd-score">Score: 42%</div>
+                </div>
                 <div class="cert-overlay">
                   <div class="cert-overlay-inner">
                     <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
@@ -590,30 +591,28 @@
               </div>
               <div class="cert-info">
                 <div class="cert-org-row">
-                  <span class="cert-org-badge cert-badge-green">Security Institute</span>
-                  <span class="cert-verified" aria-label="Verified credential" title="Verified">&#10003;</span>
+                  <span class="cert-org-badge" style="background:#27ae6018;color:#3adb78;border-color:#27ae6030;">NPTEL</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
                 </div>
-                <h3 class="cert-title">Privacy in Social Media</h3>
-                <p class="cert-subtitle">Privacy &amp; Security Certification</p>
-                <p class="cert-date">
-                  <span class="cert-date-icon" aria-hidden="true">&#128197;</span> 2023
-                </p>
+                <h3 class="cert-title">Games and Information</h3>
+                <p class="cert-subtitle">IIT Bombay &middot; Score: 42%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Jan&ndash;Apr 2025</p>
               </div>
             </a>
           </article>
 
-          <!-- Ethical Hacking — Razz Security -->
-          <article class="cert-card reveal-up" role="listitem" style="--delay:0.32s; --cert-hue: #e74c3c;">
-            <a href="assets/certificates/ethical-hacking.svg"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="View Ethical Hacking and Penetration Testing internship certificate from Razz Security in new tab"
-               class="cert-card-link">
+          <!-- 5. NPTEL Psychology of Stress — Elite -->
+          <article class="cert-card reveal-up" role="listitem" data-category="nptel" style="--delay:0.20s; --cert-hue:#f39c12;">
+            <a href="assets/certificates/nptel-psychology-stress.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NPTEL Elite certificate — Psychology of Stress, Health and Well-Being, IIT Guwahati, Jan-Apr 2025" class="cert-card-link">
               <div class="cert-thumbnail" aria-hidden="true">
-                <img src="assets/certificates/ethical-hacking.svg"
-                     alt="Ethical Hacking and Penetration Testing certificate from Razz Security preview"
-                     loading="lazy"
-                     width="400" height="280" />
+                <div class="cert-thumb-designed cert-thumb-nptel cert-thumb-nptel-amber">
+                  <div class="ctd-badge-elite">Elite</div>
+                  <div class="ctd-logo">NPTEL</div>
+                  <div class="ctd-sub">IIT Guwahati &middot; SWAYAM</div>
+                  <div class="ctd-title">Psychology of Stress &amp; Well-Being</div>
+                  <div class="ctd-score">Score: 66%</div>
+                </div>
                 <div class="cert-overlay">
                   <div class="cert-overlay-inner">
                     <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
@@ -623,25 +622,251 @@
               </div>
               <div class="cert-info">
                 <div class="cert-org-row">
-                  <span class="cert-org-badge cert-badge-red">Razz Security</span>
-                  <span class="cert-verified" aria-label="Verified credential" title="Verified">&#10003;</span>
+                  <span class="cert-org-badge" style="background:#f39c1218;color:#f0c060;border-color:#f39c1230;">NPTEL Elite</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
                 </div>
-                <h3 class="cert-title">Ethical Hacking &amp; Pentesting</h3>
-                <p class="cert-subtitle">Internship Certification</p>
-                <p class="cert-date">
-                  <span class="cert-date-icon" aria-hidden="true">&#128197;</span> 2023
-                </p>
+                <h3 class="cert-title">Psychology of Stress &amp; Well-Being</h3>
+                <p class="cert-subtitle">IIT Guwahati &middot; Score: 66%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Jan&ndash;Apr 2025</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 6. NASSCOM Acquiring Data — GOLD -->
+          <article class="cert-card reveal-up" role="listitem" data-category="nasscom" style="--delay:0.25s; --cert-hue:#d4a017;">
+            <a href="assets/certificates/nasscom-acquiring-data.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NASSCOM FutureSkills Gold certificate — Acquiring Data, Oct 2023" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <div class="cert-thumb-designed cert-thumb-nasscom">
+                  <div class="ctd-gold-seal">GOLD</div>
+                  <div class="ctd-logo">FutureSkills Prime</div>
+                  <div class="ctd-sub">NASSCOM &middot; MeitY, Govt. of India</div>
+                  <div class="ctd-title">Acquiring Data</div>
+                  <div class="ctd-score">Score: 82%</div>
+                </div>
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#d4a01718;color:#d4a017;border-color:#d4a01730;">NASSCOM Gold</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">Acquiring Data</h3>
+                <p class="cert-subtitle">FutureSkills Prime &middot; Score: 82%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Oct 2023</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 7. NASSCOM Data Processing & Visualisation — GOLD -->
+          <article class="cert-card reveal-up" role="listitem" data-category="nasscom" style="--delay:0.30s; --cert-hue:#d4a017;">
+            <a href="assets/certificates/nasscom-data-processing.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NASSCOM FutureSkills Gold certificate — Data Processing and Visualisation, Feb 2024" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <div class="cert-thumb-designed cert-thumb-nasscom">
+                  <div class="ctd-gold-seal">GOLD</div>
+                  <div class="ctd-logo">FutureSkills Prime</div>
+                  <div class="ctd-sub">NASSCOM &middot; MeitY, Govt. of India</div>
+                  <div class="ctd-title">Data Processing &amp; Visualisation</div>
+                  <div class="ctd-score">Score: 71%</div>
+                </div>
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#d4a01718;color:#d4a017;border-color:#d4a01730;">NASSCOM Gold</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">Data Processing &amp; Visualisation</h3>
+                <p class="cert-subtitle">FutureSkills Prime &middot; Score: 71%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Feb 2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 8. NASSCOM Exploratory Data Analysis — GOLD -->
+          <article class="cert-card reveal-up" role="listitem" data-category="nasscom" style="--delay:0.35s; --cert-hue:#d4a017;">
+            <a href="assets/certificates/nasscom-exploratory-data-analysis.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View NASSCOM FutureSkills Gold certificate — Exploratory Data Analysis, Oct 2023" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <div class="cert-thumb-designed cert-thumb-nasscom">
+                  <div class="ctd-gold-seal">GOLD</div>
+                  <div class="ctd-logo">FutureSkills Prime</div>
+                  <div class="ctd-sub">NASSCOM &middot; MeitY, Govt. of India</div>
+                  <div class="ctd-title">Exploratory Data Analysis</div>
+                  <div class="ctd-score">Score: 79%</div>
+                </div>
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#d4a01718;color:#d4a017;border-color:#d4a01730;">NASSCOM Gold</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">Exploratory Data Analysis</h3>
+                <p class="cert-subtitle">FutureSkills Prime &middot; Score: 79%</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> Oct 2023</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 9. EnigmaXplore 2.0 CTF — IIIT Nagpur (image) -->
+          <article class="cert-card reveal-up" role="listitem" data-category="competition" style="--delay:0.40s; --cert-hue:#4a90d9;">
+            <a href="assets/certificates/enigmaxplore-2-iiit-nagpur.jpg" target="_blank" rel="noopener noreferrer"
+               aria-label="View EnigmaXplore 2.0 CTF participation certificate — TantraFiesta 24, IIIT Nagpur" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <img src="assets/certificates/enigmaxplore-2-iiit-nagpur.jpg"
+                     alt="EnigmaXplore 2.0 CTF certificate preview"
+                     loading="lazy" width="400" height="280" />
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#4a90d918;color:#4a90d9;border-color:#4a90d930;">IIIT Nagpur</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">EnigmaXplore 2.0 CTF</h3>
+                <p class="cert-subtitle">TantraFiesta&apos;24 &middot; Unstop</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> 2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 10. EnigmaXplore CTF (1st edition) — IIIT Nagpur (image) -->
+          <article class="cert-card reveal-up" role="listitem" data-category="competition" style="--delay:0.45s; --cert-hue:#4a90d9;">
+            <a href="assets/certificates/enigmaxplore-1-iiit-nagpur.jpg" target="_blank" rel="noopener noreferrer"
+               aria-label="View EnigmaXplore CTF participation certificate — TantraFiesta 23, IIIT Nagpur" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <img src="assets/certificates/enigmaxplore-1-iiit-nagpur.jpg"
+                     alt="EnigmaXplore CTF certificate preview"
+                     loading="lazy" width="400" height="280" />
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#4a90d918;color:#4a90d9;border-color:#4a90d930;">IIIT Nagpur</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">EnigmaXplore CTF</h3>
+                <p class="cert-subtitle">TantraFiesta&apos;23 &middot; Unstop</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> 2023</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 11. Flipkart GRiD 5.0 (image) -->
+          <article class="cert-card reveal-up" role="listitem" data-category="competition" style="--delay:0.50s; --cert-hue:#f7941d;">
+            <a href="assets/certificates/flipkart-grid-5.jpg" target="_blank" rel="noopener noreferrer"
+               aria-label="View Flipkart GRiD 5.0 participation certificate — Software Development Track, Level 1.1" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <img src="assets/certificates/flipkart-grid-5.jpg"
+                     alt="Flipkart GRiD 5.0 certificate preview"
+                     loading="lazy" width="400" height="280" />
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#f7941d18;color:#f7941d;border-color:#f7941d30;">Flipkart</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">Flipkart GRiD 5.0</h3>
+                <p class="cert-subtitle">Software Development Track &middot; Level 1.1</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> 2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 12. L'Oréal Sustainability Challenge (image) -->
+          <article class="cert-card reveal-up" role="listitem" data-category="competition" style="--delay:0.55s; --cert-hue:#1a7f4e;">
+            <a href="assets/certificates/loreal-sustainability-challenge.jpg" target="_blank" rel="noopener noreferrer"
+               aria-label="View L&apos;Oréal Sustainability Challenge 2024 participation certificate" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <img src="assets/certificates/loreal-sustainability-challenge.jpg"
+                     alt="L'Oréal Sustainability Challenge certificate preview"
+                     loading="lazy" width="400" height="280" />
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Certificate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#1a7f4e18;color:#2ecc71;border-color:#1a7f4e30;">L&apos;Or&eacute;al</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">L&apos;Or&eacute;al Sustainability Challenge</h3>
+                <p class="cert-subtitle">Online Aptitude Assessment &middot; 2024</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> 2024</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- 13. ICFAI Academic Transcript -->
+          <article class="cert-card reveal-up" role="listitem" data-category="education" style="--delay:0.60s; --cert-hue:#7c6af7;">
+            <a href="assets/certificates/icfai-transcript.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="View ICFAI academic transcript for Sai Keerthana" class="cert-card-link">
+              <div class="cert-thumbnail" aria-hidden="true">
+                <div class="cert-thumb-designed cert-thumb-icfai">
+                  <div class="ctd-logo">ICFAI</div>
+                  <div class="ctd-sub">Foundation for Higher Education</div>
+                  <div class="ctd-title">Academic Transcript</div>
+                  <div class="ctd-sub2">B.Tech CS &middot; AI &amp; Data Science</div>
+                </div>
+                <div class="cert-overlay">
+                  <div class="cert-overlay-inner">
+                    <span class="cert-view-icon" aria-hidden="true">&#8599;</span>
+                    <span class="cert-view-label">View Transcript</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-org-row">
+                  <span class="cert-org-badge" style="background:#7c6af718;color:#7c6af7;border-color:#7c6af730;">ICFAI</span>
+                  <span class="cert-verified" aria-label="Verified">&#10003;</span>
+                </div>
+                <h3 class="cert-title">Academic Transcript</h3>
+                <p class="cert-subtitle">B.Tech CS (AI &amp; Data Science)</p>
+                <p class="cert-date"><span aria-hidden="true">&#128197;</span> 2022&ndash;2026</p>
               </div>
             </a>
           </article>
 
         </div><!-- /.certs-grid -->
-
-        <p class="certs-note reveal-up">
-          <span aria-hidden="true">&#128274;</span> Replace the SVG placeholders in <code>assets/certificates/</code> with your actual certificate PDFs or images. Update each <code>href</code> to point to the real file.
-        </p>
       </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" aria-labelledby="contact-heading">
