@@ -1,77 +1,553 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Resume</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sai Keerthana — Cybersecurity & Web Developer. B.Tech CS (AI & Data Science) student specializing in application security, ethical hacking, and full-stack development." />
+  <meta name="keywords" content="cybersecurity, security engineer, ethical hacking, penetration testing, web developer, portfolio, OWASP, GRC" />
+  <meta name="author" content="Sai Keerthana" />
+  <meta property="og:title" content="Sai Keerthana | Cybersecurity & Developer" />
+  <meta property="og:description" content="Security Engineer Intern passionate about application security, ethical hacking, and building secure web systems." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Sai Keerthana | Cybersecurity & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>John Doe</h1>
-            <p>Web Developer | Designer</p>
-            <p>Contact: john.doe@example.com | (123) 456-7890</p>
+
+  <!-- Loading Screen -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-text">sk<span class="loader-dot">.</span></span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <span class="loader-sub">initializing portfolio...</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Sai Keerthana — go to top">sk<span class="dot">.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">&#9728;</span>
+          <span class="icon-moon" aria-hidden="true">&#9790;</span>
+        </button>
+        <a href="assets/sai_keerthana_resume.pdf" download class="btn btn-sm" aria-label="Download resume PDF">Resume &#8595;</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-links-mobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="assets/sai_keerthana_resume.pdf" download class="btn btn-outline">Download Resume</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-terminal" aria-hidden="true">
+          <div class="terminal-line"><span class="t-prompt">~$</span> <span class="t-cmd">nmap -sV target.io</span></div>
+          <div class="terminal-line t-delay-1"><span class="t-out t-green">443/tcp open https nginx</span></div>
+          <div class="terminal-line t-delay-2"><span class="t-prompt">~$</span> <span class="t-cmd">python phishmap.py --scan</span></div>
+          <div class="terminal-line t-delay-3"><span class="t-out t-green">Detection accuracy: 92%</span></div>
+          <div class="terminal-line t-delay-4"><span class="t-prompt">~$</span> <span class="t-blink">_</span></div>
         </div>
-    </header>
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-greeting reveal-up">Hello, I'm</p>
+        <h1 id="hero-heading" class="hero-name reveal-up" style="--delay:0.1s">Sai Keerthana<span class="dot">.</span></h1>
+        <h2 class="hero-title reveal-up" style="--delay:0.2s">
+          <span id="typed-text" aria-live="polite"></span><span class="cursor" aria-hidden="true">|</span>
+        </h2>
+        <p class="hero-description reveal-up" style="--delay:0.3s">
+          B.Tech CS (AI &amp; Data Science) student at ICFAI, Hyderabad. Security Engineer Intern at Appfend, Dublin. I build secure systems and break insecure ones &#8212; ethically.
+        </p>
+        <div class="hero-cta reveal-up" style="--delay:0.4s">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+        <div class="hero-socials reveal-up" style="--delay:0.5s">
+          <a href="https://github.com/Patil1703" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile Patil1703">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/sai-keerthana1703" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile sai-keerthana1703">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:keerthanapatil17@gmail.com" aria-label="Email Sai Keerthana">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+          <span class="scroll-line"></span>
+          <span class="scroll-label">scroll</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-label reveal-up">About Me</div>
+        <div class="about-grid">
+          <div class="about-text reveal-up">
+            <h2 id="about-heading">I secure systems.<br><em>And sometimes break them.</em></h2>
+            <p>I'm a final-year B.Tech student in Computer Science (AI &amp; Data Science) at ICFAI Foundation, Hyderabad. My world sits at the intersection of cybersecurity, ethical hacking, and full-stack web development.</p>
+            <p>Currently interning as a Security Engineer at Appfend (Dublin, Remote), focusing on web application security &#8212; OWASP Top 10, GRC frameworks, and secure architecture. Previously at Eficens Systems doing network reconnaissance and threat analysis.</p>
+            <p>I also founded <strong>TheCyberDelta</strong>, a cybersecurity awareness blog that grew to 5K+ monthly readers, where I mentored 6 interns on digital safety and pentesting concepts.</p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">Internships</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-count="5">0</span><span class="stat-suffix">K+</span>
+                <span class="stat-label">Blog Readers/mo</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-count="92">0</span><span class="stat-suffix">%</span>
+                <span class="stat-label">ML Accuracy</span>
+              </div>
+            </div>
+            <div class="about-badges">
+              <span class="badge badge-open">Open to Work</span>
+              <span class="badge badge-loc">Hyderabad, India</span>
+              <span class="badge badge-remote">Remote-friendly</span>
+            </div>
+          </div>
+          <div class="about-image reveal-up" style="--delay:0.2s" aria-hidden="true">
+            <div class="about-avatar">
+              <div class="avatar-ring"></div>
+              <div class="avatar-inner">SK</div>
+              <div class="avatar-badge">Security Engineer @ Appfend</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Ticker -->
+    <div class="certs-strip" aria-label="Certifications">
+      <div class="certs-track">
+        <span>Microsoft AI-900</span><span class="cert-dot">&middot;</span>
+        <span>Cybersecurity &amp; Privacy</span><span class="cert-dot">&middot;</span>
+        <span>Practical Cybersecurity</span><span class="cert-dot">&middot;</span>
+        <span>Privacy &amp; Security in Social Media</span><span class="cert-dot">&middot;</span>
+        <span>Ethical Hacking &amp; Pentesting &#8212; Razz Security</span><span class="cert-dot">&middot;</span>
+        <span>Microsoft AI-900</span><span class="cert-dot">&middot;</span>
+        <span>Cybersecurity &amp; Privacy</span><span class="cert-dot">&middot;</span>
+        <span>Practical Cybersecurity</span><span class="cert-dot">&middot;</span>
+        <span>Privacy &amp; Security in Social Media</span><span class="cert-dot">&middot;</span>
+        <span>Ethical Hacking &amp; Pentesting &#8212; Razz Security</span><span class="cert-dot">&middot;</span>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-label reveal-up">What I Work With</div>
+        <h2 id="skills-heading" class="section-title reveal-up">Skills &amp; Technologies</h2>
+        <div class="skills-grid">
+
+          <div class="skill-card reveal-up" style="--delay:0s">
+            <div class="skill-icon" aria-hidden="true">&#128274;</div>
+            <h3>Cybersecurity</h3>
+            <ul class="skill-list" role="list">
+              <li>
+                <span>OWASP Top 10</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="OWASP Top 10 proficiency 80%">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </li>
+              <li>
+                <span>MITRE ATT&amp;CK Framework</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="MITRE ATT&CK proficiency 70%">
+                  <div class="skill-fill" data-width="70"></div>
+                </div>
+              </li>
+              <li>
+                <span>Network Recon (Nmap, Masscan)</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Network Recon proficiency 72%">
+                  <div class="skill-fill" data-width="72"></div>
+                </div>
+              </li>
+              <li>
+                <span>GRC &amp; Risk Management</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="GRC proficiency 60%">
+                  <div class="skill-fill" data-width="60"></div>
+                </div>
+              </li>
             </ul>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.1s">
+            <div class="skill-icon" aria-hidden="true">&#10216;/&#10217;</div>
+            <h3>Development</h3>
+            <ul class="skill-list" role="list">
+              <li>
+                <span>Python</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Python proficiency 78%">
+                  <div class="skill-fill" data-width="78"></div>
+                </div>
+              </li>
+              <li>
+                <span>Flask &amp; Web Apps</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Flask proficiency 72%">
+                  <div class="skill-fill" data-width="72"></div>
+                </div>
+              </li>
+              <li>
+                <span>HTML / CSS / JavaScript</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Web proficiency 75%">
+                  <div class="skill-fill" data-width="75"></div>
+                </div>
+              </li>
+              <li>
+                <span>MySQL &amp; SQLite</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Database proficiency 65%">
+                  <div class="skill-fill" data-width="65"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.2s">
+            <div class="skill-icon" aria-hidden="true">&#9881;</div>
+            <h3>Tools &amp; Other</h3>
+            <div class="skill-tags" role="list">
+              <span role="listitem">Git &amp; GitHub</span>
+              <span role="listitem">Docker</span>
+              <span role="listitem">Linux / Bash</span>
+              <span role="listitem">Streamlit</span>
+              <span role="listitem">Agile</span>
+              <span role="listitem">Java</span>
+              <span role="listitem">R</span>
+              <span role="listitem">C/C++</span>
+              <span role="listitem">Bootstrap</span>
+              <span role="listitem">Machine Learning</span>
+            </div>
+          </div>
+
         </div>
-    </nav>
-    <main>
-        <section id="education">
-            <div class="container">
-                <h2>Education</h2>
-                <div class="item" data-tooltip="This is where I studied Computer Science.">
-                    <h3>University of Example</h3>
-                    <p>Bachelor of Science in Computer Science</p>
-                    <p>Graduated: May 2020</p>
-                </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education Timeline -->
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="section-label reveal-up">My Journey</div>
+        <h2 id="experience-heading" class="section-title reveal-up">Experience &amp; Education</h2>
+        <div class="timeline" role="list">
+
+          <article class="timeline-item reveal-up" role="listitem" style="--delay:0s">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">Jan 2026 &#8212; Present</span>
+                <span class="timeline-tag">Current Role</span>
+              </div>
+              <h3>Security Engineer Intern</h3>
+              <p class="timeline-company">Appfend &#8212; Dublin, Ireland (Remote)</p>
+              <p>Web application security with a focus on OWASP Top 10 vulnerabilities &#8212; identifying and documenting injection flaws, broken authentication, and security misconfigurations.</p>
+              <ul class="timeline-bullets" role="list">
+                <li>GRC exposure: risk identification, compliance requirements, governance, asset management, and NDA obligations</li>
+                <li>Participated in security architecture reviews and secure development practice discussions</li>
+              </ul>
             </div>
-        </section>
-        <section id="experience">
-            <div class="container">
-                <h2>Experience</h2>
-                <div class="item" data-tooltip="Developed user interfaces and enhanced user experience.">
-                    <h3>Front-End Developer at Example Co.</h3>
-                    <p>June 2021 - Present</p>
-                    <p>Worked on developing user interfaces and enhancing user experience.</p>
-                </div>
+          </article>
+
+          <article class="timeline-item reveal-up" role="listitem" style="--delay:0.1s">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">Jun 2025 &#8212; Dec 2025</span>
+                <span class="timeline-tag">Internship</span>
+              </div>
+              <h3>Cybersecurity Intern</h3>
+              <p class="timeline-company">Eficens Systems &#8212; Hyderabad, India</p>
+              <p>Network reconnaissance and threat analysis as part of supervised vulnerability assessment exercises.</p>
+              <ul class="timeline-bullets" role="list">
+                <li>Used Nmap and Masscan to identify open ports and exposed services</li>
+                <li>Applied the MITRE ATT&amp;CK framework to real-world attacker TTPs</li>
+                <li>Reviewed system logs and documented findings for the detection team</li>
+              </ul>
             </div>
-        </section>
-        <section id="skills">
-            <div class="container">
-                <h2>Skills</h2>
-                <ul>
-                    <li data-tooltip="Hypertext Markup Language">HTML & CSS</li>
-                    <li data-tooltip="Programming language of the web">JavaScript</li>
-                    <li data-tooltip="A JavaScript library for building user interfaces">React</li>
-                    <li data-tooltip="Designing user-friendly and intuitive interfaces">UX/UI Design</li>
-                </ul>
+          </article>
+
+          <article class="timeline-item reveal-up" role="listitem" style="--delay:0.2s">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">Jun 2024 &#8212; Aug 2024</span>
+                <span class="timeline-tag">Internship</span>
+              </div>
+              <h3>Web Development Intern</h3>
+              <p class="timeline-company">Unified Mentor &#8212; Delhi, India (Remote)</p>
+              <p>Developed and deployed 3 full-stack web applications with secure authentication and responsive UI using Flask, MySQL, and Docker.</p>
+              <ul class="timeline-bullets" role="list">
+                <li>Optimised back-end queries and caching strategies within an Agile workflow</li>
+              </ul>
             </div>
-        </section>
-        <section id="projects">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="item" data-tooltip="My personal portfolio showcasing various projects.">
-                    <h3>Portfolio Website</h3>
-                    <p>A personal website to showcase my projects and skills.</p>
-                </div>
+          </article>
+
+          <article class="timeline-item timeline-founder reveal-up" role="listitem" style="--delay:0.3s">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">Feb 2022 &#8212; Feb 2024</span>
+                <span class="timeline-tag timeline-tag-founder">Founder</span>
+              </div>
+              <h3>Founder &#8212; TheCyberDelta</h3>
+              <p class="timeline-company">Mumbai, India (Remote)</p>
+              <p>Built and grew a cybersecurity awareness blog through SEO and targeted content strategy.</p>
+              <ul class="timeline-bullets" role="list">
+                <li>Scaled to 5K+ monthly views</li>
+                <li>Mentored 6 interns, producing 50+ articles on digital safety, pentesting, and threat prevention</li>
+              </ul>
             </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 John Doe. All rights reserved.</p>
+          </article>
+
+          <article class="timeline-item timeline-edu reveal-up" role="listitem" style="--delay:0.4s">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">Aug 2022 &#8212; May 2026</span>
+                <span class="timeline-tag">Education</span>
+              </div>
+              <h3>B.Tech &#8212; CS (AI &amp; Data Science)</h3>
+              <p class="timeline-company">ICFAI Foundation of Higher Education &#8212; Hyderabad</p>
+              <p>Final-year student focused on AI, data science, and cybersecurity. Active in leadership and competitive hackathons.</p>
+              <ul class="timeline-bullets" role="list">
+                <li>Team Leader &#8212; Smart India Hackathon 2024 (national jury presentation)</li>
+                <li>Team Leader &#8212; CipherCop 2025 (Top 5, threat analysis &amp; secure system design)</li>
+                <li>President, Game Development Club &#8212; 5+ workshops, 150+ participants</li>
+              </ul>
+            </div>
+          </article>
+
         </div>
-    </footer>
-    <div id="tooltip"></div>
-    <script src="script.js"></script>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-label reveal-up">What I've Built</div>
+        <h2 id="projects-heading" class="section-title reveal-up">Featured Projects</h2>
+        <div class="projects-grid">
+
+          <article class="project-card project-featured reveal-up" aria-labelledby="proj-1-title">
+            <div class="project-card-inner">
+              <div class="project-preview project-preview-cyber" aria-hidden="true">
+                <div class="project-preview-content">
+                  <div class="pp-terminal">
+                    <div class="pp-tbar"><span></span><span></span><span></span></div>
+                    <div class="pp-tline"><span class="pp-label">URL:</span> suspicious-login.xyz</div>
+                    <div class="pp-tline"><span class="pp-green">&#10003;</span> SSL valid &middot; <span class="pp-yellow">&#9888;</span> Age: 3 days</div>
+                    <div class="pp-tline"><span class="pp-red">&#10007;</span> PHISHING DETECTED</div>
+                    <div class="pp-tline pp-dim">accuracy: 92% &middot; model: random forest</div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-meta">
+                  <span class="project-tag">Featured</span>
+                  <div class="project-links">
+                    <a href="https://github.com/Patil1703" target="_blank" rel="noopener noreferrer" aria-label="View PhishMap on GitHub">GitHub &#8599;</a>
+                  </div>
+                </div>
+                <h3 id="proj-1-title">PhishMap &#8212; AI Phishing Detector</h3>
+                <p>ML-powered phishing URL detection using SSL certificates, domain age, and URL structure analysis. Real-time Flask dashboard with 92% detection accuracy using Random Forest.</p>
+                <div class="project-stack" role="list" aria-label="Technologies used">
+                  <span role="listitem">Python</span>
+                  <span role="listitem">Machine Learning</span>
+                  <span role="listitem">Flask</span>
+                  <span role="listitem">Random Forest</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--delay:0.1s" aria-labelledby="proj-2-title">
+            <div class="project-card-inner">
+              <div class="project-preview project-preview-blue" aria-hidden="true">
+                <div class="project-preview-content">
+                  <div class="pp-bar"></div>
+                  <div class="pp-bar pp-bar-sm"></div>
+                  <div class="pp-row">
+                    <div class="pp-block"></div>
+                    <div class="pp-block pp-block-wide"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-meta">
+                  <div class="project-links">
+                    <a href="https://github.com/Patil1703" target="_blank" rel="noopener noreferrer" aria-label="View URL Shortener on GitHub">GitHub &#8599;</a>
+                  </div>
+                </div>
+                <h3 id="proj-2-title">URL Shortening Web App</h3>
+                <p>Full-featured URL shortener with analytics dashboard, click tracking, and QR code generation. Secured against HTML injection, validated by 100+ testers across 1,000+ clicks.</p>
+                <div class="project-stack" role="list" aria-label="Technologies used">
+                  <span role="listitem">Flask</span>
+                  <span role="listitem">SQLite</span>
+                  <span role="listitem">Python</span>
+                  <span role="listitem">QR Code API</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--delay:0.2s" aria-labelledby="proj-3-title">
+            <div class="project-card-inner">
+              <div class="project-preview project-preview-green" aria-hidden="true">
+                <div class="project-preview-content">
+                  <div class="pp-list-audit">
+                    <div class="pp-audit-item"><span class="pp-green">PASS</span><div class="pp-audit-bar"></div></div>
+                    <div class="pp-audit-item"><span class="pp-green">PASS</span><div class="pp-audit-bar pp-audit-bar-md"></div></div>
+                    <div class="pp-audit-item"><span class="pp-yellow">WARN</span><div class="pp-audit-bar pp-audit-bar-sm"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-meta">
+                  <div class="project-links">
+                    <a href="https://github.com/Patil1703" target="_blank" rel="noopener noreferrer" aria-label="View Linux Security Auditing on GitHub">GitHub &#8599;</a>
+                  </div>
+                </div>
+                <h3 id="proj-3-title">Linux Security Auditing</h3>
+                <p>Automated CIS benchmark compliance checks on Debian/RHEL systems using custom Bash scripts. Vulnerability reconnaissance with Masscan as part of a learning-focused exercise.</p>
+                <div class="project-stack" role="list" aria-label="Technologies used">
+                  <span role="listitem">Bash</span>
+                  <span role="listitem">Masscan</span>
+                  <span role="listitem">Linux</span>
+                  <span role="listitem">CIS Benchmarks</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <div class="projects-more reveal-up">
+          <a href="https://github.com/Patil1703" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            See all projects on GitHub &#8599;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-label reveal-up">Let's Talk</div>
+        <h2 id="contact-heading" class="section-title reveal-up">Get In Touch</h2>
+        <p class="contact-intro reveal-up">I'm actively looking for cybersecurity and/or full-stack development opportunities &#8212; internships, full-time, or freelance. If you have a role or project in mind, let's connect.</p>
+        <div class="contact-grid">
+          <div class="contact-info reveal-up">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">&#9993;</span>
+              <div>
+                <p class="contact-label">Email</p>
+                <a href="mailto:keerthanapatil17@gmail.com">keerthanapatil17@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">&#128222;</span>
+              <div>
+                <p class="contact-label">Phone</p>
+                <a href="tel:+917995732076">+91 7995732076</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">&#128205;</span>
+              <div>
+                <p class="contact-label">Location</p>
+                <p>Hyderabad, India &#8212; Open to remote</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">&#128188;</span>
+              <div>
+                <p class="contact-label">LinkedIn</p>
+                <a href="https://linkedin.com/in/sai-keerthana1703" target="_blank" rel="noopener noreferrer">sai-keerthana1703</a>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form reveal-up" id="contact-form" style="--delay:0.2s" novalidate aria-label="Contact form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required aria-required="true" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Job opportunity / Collaboration / Just saying hi" required aria-required="true" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about the role or project..." required aria-required="true"></textarea>
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="form-submit">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader" aria-hidden="true"></span>
+            </button>
+            <div class="form-success" role="alert" aria-live="polite" id="form-success">
+              &#10003; Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-logo">sk<span class="dot">.</span></p>
+      <p class="footer-copy">Sai Keerthana &middot; Hyderabad, India &middot; 2024</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Patil1703" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/sai-keerthana1703" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">&#8593;</button>
+  <script src="js/script.js"></script>
 </body>
 </html>
