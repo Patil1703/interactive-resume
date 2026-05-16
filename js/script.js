@@ -396,3 +396,42 @@ certCards.forEach(card => {
     }
   });
 });
+
+/* =========================================
+   16. CERTIFICATIONS — FILTER TABS
+   ========================================= */
+const filterBtns = document.querySelectorAll('.cert-filter-btn');
+const certItems  = document.querySelectorAll('#certs-grid .cert-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.getAttribute('data-filter');
+
+    // Update active button
+    filterBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    // Show/hide cards
+    let visible = 0;
+    certItems.forEach(card => {
+      const cats = card.getAttribute('data-category') || '';
+      const match = filter === 'all' || cats.includes(filter);
+      card.classList.toggle('hidden-filter', !match);
+      if (match) visible++;
+    });
+
+    // No-results message
+    let noResults = document.querySelector('.certs-no-results');
+    if (!noResults) {
+      noResults = document.createElement('p');
+      noResults.className = 'certs-no-results';
+      noResults.textContent = 'No certificates in this category yet.';
+      document.getElementById('certs-grid').appendChild(noResults);
+    }
+    noResults.classList.toggle('show', visible === 0);
+  });
+});
