@@ -343,3 +343,56 @@ window.addEventListener('scroll', () => {
   const progress = (window.scrollY / totalHeight) * 100;
   progressBar.style.width = `${progress}%`;
 }, { passive: true });
+
+/* =========================================
+   15. CERTIFICATIONS — INTERACTIVE EFFECTS
+   ========================================= */
+
+// Subtle mouse-tracking tilt on cert cards (desktop only)
+const certCards = document.querySelectorAll('.cert-card');
+
+const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+certCards.forEach(card => {
+  if (isTouchDevice() || prefersReducedMotion()) return;
+
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;   // -0.5 → 0.5
+    const y = (e.clientY - rect.top)  / rect.height - 0.5;
+    // Gentle tilt — max ±6deg
+    card.style.transform = `
+      translateY(-8px)
+      scale(1.02)
+      perspective(800px)
+      rotateY(${x * 6}deg)
+      rotateX(${-y * 6}deg)
+    `;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// Keyboard: Enter/Space on cert link fires a click (native anchor handles it,
+// but we add a visual ripple for extra polish)
+certCards.forEach(card => {
+  const link = card.querySelector('.cert-card-link');
+  if (!link) return;
+
+  link.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      // Brief scale flash for keyboard users
+      card.style.transition = 'transform 0.1s ease';
+      card.style.transform = 'scale(0.97)';
+      setTimeout(() => {
+        card.style.transform = '';
+        card.style.transition = '';
+        link.click(); // open the cert in new tab
+      }, 120);
+    }
+  });
+});
